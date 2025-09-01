@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+# ^ Blocks search engines. Remove these two lines when/if you want the site indexed.
