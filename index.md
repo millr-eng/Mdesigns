@@ -18,12 +18,12 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background: url('/images/Scaffolding1.jpg') center/cover no-repeat fixed;
+    background: url('./images/Scaffolding1.jpg') center/cover no-repeat fixed; /* Adjusted path */
     display: flex;
     align-items: flex-start; /* Align title to top */
     justify-content: center;
     text-align: center;
-    padding-top: 2rem; /* Add padding for top spacing */
+    padding-top: 5rem; /* More padding for top alignment */
   }
 
   /* Dark overlay */
@@ -33,20 +33,21 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for better contrast */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Overlay above background, below title */
   }
 
   /* Title styling */
   .hero-title {
     position: relative;
     color: #fff;
-    font-size: clamp(36px, 7vw, 72px); /* Adjusted for better scaling */
+    font-size: clamp(36px, 7vw, 72px);
     font-weight: 900;
     line-height: 1.2;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
     margin: 0;
-    padding: 0 1rem; /* Prevent text cutoff on smaller screens */
-    z-index: 1; /* Ensure title is above overlay */
+    padding: 0 1rem;
+    z-index: 2; /* Title above overlay */
   }
 
   /* Content section styling */
@@ -55,13 +56,8 @@
     margin: 2rem auto;
     padding: 0 1rem;
     font-family: Arial, sans-serif;
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .hero-title {
-      font-size: clamp(28px, 6vw, 48px);
-    }
+    z-index: 3; /* Content above everything */
+    position: relative;
   }
 </style>
 
