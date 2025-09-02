@@ -1,4 +1,7 @@
-![](/images/Scaffolding1.jpg){:style="width:100%; max-height:400px; object-fit:cover;"}
+![banner](/images/Scaffolding1.jpg){:style="width:100%; height:350px; object-fit:cover; display:block; margin:auto;"}
+
+# M Designs and Drafting Services
+
 
 title: M Designs and Drafting services
 
