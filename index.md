@@ -17,11 +17,6 @@
 
 # M Designs and Drafting Services
 
-
-title: M Designs and Drafting services
-
-
-
 Design services using AutoCAD 2d and 3D modelling services using Sketchup pro.
 
 A compact, public-friendly portfolio. Edit this text to add your brand/alias (you don't need your full name).  
