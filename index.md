@@ -1,3 +1,9 @@
+<style>
+  .site-header, .page-header, header {
+    display: none !important;
+  }
+</style>
+
 <!-- Hide the theme's default header/footer so it's not split -->
 <style>
   .site-header, .page-header, header, .site-footer, footer { display:none !important; }
