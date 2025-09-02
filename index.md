@@ -1,8 +1,9 @@
 ---
-title: M Design and Drafting services
+title: M Designs and Drafting services
 ---
 
-# LM Engineering — Portfolio
+
+Design services using AutoCAD 2d and 3D modelling services using Sketchup pro.
 
 A compact, public-friendly portfolio. Edit this text to add your brand/alias (you don't need your full name).  
 Add images to the **images/** folder and link to them with `![](/images/your-photo.jpg)`.
@@ -14,4 +15,4 @@ Add images to the **images/** folder and link to them with `![](/images/your-pho
 Brief description of what you do (drafting, structural calcs, 3D printing, etc.).
 
 ## Contact (optional)
-Add an email or a contact form link if you want to be reachable.
+Mdesigns.engineering@gmail.com
