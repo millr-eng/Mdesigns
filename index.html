@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ site.title }}</title>
+  <style>
+    html, body { height:100%; margin:0; }
+    body { font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+
+    /* Fullscreen hero with your image + overlay */
+    .hero {
+      position: relative;
+      height: 100vh;                     /* full screen */
+      background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+        url('{{ site.baseurl }}/images/Scaffolding1.jpg') center/cover no-repeat;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; color:#fff;
+    }
+    .hero h1 {
+      margin:0;
+      font-weight:800;
+      font-size: clamp(32px, 8vw, 84px);
+      line-height: 1.1;
+      text-shadow: 0 4px 12px rgba(0,0,0,.6);
+    }
+
+    /* Main content area */
+    .content {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    .content h2 { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>M Designs & Drafting Services</h1>
+  </section>
+
+  <main class="content">
+    <h2>Services</h2>
+    <ul>
+      <li>2D CAD drafting (AutoCAD)</li>
+      <li>3D modelling (SketchUp Pro)</li>
+      <li>3D print prototypes</li>
+      <li>Residential/basic structural calcs</li>
+    </ul>
+
+    <h2>Featured projects</h2>
+    <ul>
+      <li><a href="{{ site.baseurl }}/projects/example-project">Example Project</a></li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>Mdesigns.engineering@gmail.com</p>
+  </main>
+</body>
+</html>
