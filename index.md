@@ -1,29 +1,40 @@
 <style>
-  .site-header, .page-header, header {
+  /* Hide the default Minimal theme header/footer */
+  .site-header, .page-header, header, footer, .site-footer {
     display: none !important;
   }
 </style>
 
-<!-- Hide the theme's default header/footer so it's not split -->
-<style>
-  .site-header, .page-header, header, .site-footer, footer { display:none !important; }
-</style>
-
-<!-- Fullscreen hero with your image and title on top -->
+<!-- Fullscreen hero background with overlay -->
 <div style="
   position:relative;
-  height:100vh;               /* full screen height */
+  height:100vh; 
   width:100%;
-  margin:0 0 32px 0;
+  margin:0;
   background:url('/images/Scaffolding1.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:#fff;
 ">
-  <h1 style="font-size:clamp(32px,8vw,84px); font-weight:800; line-height:1.05;
-             text-shadow:0 4px 12px rgba(0,0,0,.55); margin:0;">
+  <!-- Dark overlay -->
+  <div style="
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.45);
+  "></div>
+
+  <!-- Title text -->
+  <h1 style="
+    position:relative;
+    color:#fff;
+    font-size:clamp(32px,8vw,84px);
+    font-weight:800;
+    line-height:1.1;
+    text-shadow:0 4px 12px rgba(0,0,0,0.6);
+    margin:0;
+  ">
     M Designs & Drafting Services
   </h1>
 </div>
