@@ -1,7 +1,12 @@
-<!-- Fullscreen hero background with your image and title on top -->
+<!-- Hide the theme's default header/footer so it's not split -->
+<style>
+  .site-header, .page-header, header, .site-footer, footer { display:none !important; }
+</style>
+
+<!-- Fullscreen hero with your image and title on top -->
 <div style="
   position:relative;
-  height:100vh;                  /* full screen */
+  height:100vh;               /* full screen height */
   width:100%;
   margin:0 0 32px 0;
   background:url('/images/Scaffolding1.jpg') center/cover no-repeat;
@@ -17,23 +22,16 @@
   </h1>
 </div>
 
-    M Designs & Drafting Services
-  </h1>
-</div>
-
-
-# M Designs and Drafting Services
-
-Design services using AutoCAD 2d and 3D modelling services using Sketchup pro.
-
-A compact, public-friendly portfolio. Edit this text to add your brand/alias (you don't need your full name).  
-Add images to the **images/** folder and link to them with `![](/images/your-photo.jpg)`.
+<!-- Your content starts here -->
+## Services
+- 2D CAD drafting (AutoCAD)
+- 3D modelling (SketchUp Pro)
+- 3D print prototypes
+- Residential/basic structural calcs
 
 ## Featured projects
 - [Example Project](projects/example-project.md)
 
-## About / Services
-Brief description of what you do (drafting, structural calcs, 3D printing, etc.).
-
-## Contact (optional)
+## Contact
 Mdesigns.engineering@gmail.com
+
