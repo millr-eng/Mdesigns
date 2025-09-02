@@ -1,15 +1,22 @@
-<!-- Fullscreen hero background -->
+<!-- Fullscreen hero background with your image and title on top -->
 <div style="
   position:relative;
-  height:100vh;                         /* full viewport height */
+  height:100vh;                  /* full screen */
+  width:100%;
+  margin:0 0 32px 0;
   background:url('/images/Scaffolding1.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  color:white;
+  color:#fff;
 ">
-  <h1 style="font-size:clamp(32px,8vw,80px); font-weight:800; text-shadow:0 3px 8px rgba(0,0,0,0.6);">
+  <h1 style="font-size:clamp(32px,8vw,84px); font-weight:800; line-height:1.05;
+             text-shadow:0 4px 12px rgba(0,0,0,.55); margin:0;">
+    M Designs & Drafting Services
+  </h1>
+</div>
+
     M Designs & Drafting Services
   </h1>
 </div>
