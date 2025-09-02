@@ -15,7 +15,7 @@
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url('https://millr-eng.github.io/Mdesigns/images/test2.jpg')
-        center / cover no-repeat; /* change 'cover' to 'contain' to zoom out */
+        center / cover no-repeat;
       display:flex; align-items:center; justify-content:center;
       text-align:center; color:#fff;
     }
@@ -26,11 +26,11 @@
       padding: 0 16px;
     }
 
-    /* ===== DARK SERVICES SECTION (second screen) ===== */
-    .section-dark { background:#0b0b0b; color:#eee; padding:72px 16px; }
+    /* ===== LIGHT SERVICES SECTION ===== */
+    .section-light { background:#fff; color:#333; padding:72px 16px; }
     .section-inner { max-width:1100px; margin:0 auto; text-align:center; }
-    .section-dark h2 { margin:0 0 8px; font-size:clamp(24px,4vw,38px); letter-spacing:.06em; }
-    .section-dark .sub { color:#bdbdbd; margin-bottom:48px; font-style:italic; }
+    .section-light h2 { margin:0 0 8px; font-size:clamp(24px,4vw,38px); letter-spacing:.06em; }
+    .section-light .sub { color:#666; margin-bottom:48px; font-style:italic; }
 
     .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
     @media (max-width: 900px){ .services-grid { grid-template-columns:1fr; } }
@@ -40,10 +40,10 @@
       width:120px; height:120px; margin:0 auto 18px; border-radius:50%;
       background:#f1c40f; display:grid; place-items:center;
     }
-    .icon-circle svg { width:56px; height:56px; fill:#0b0b0b; }
+    .icon-circle svg { width:56px; height:56px; fill:#111; }
 
-    .service-item h3 { margin:0 0 10px; font-size:clamp(18px,2.4vw,24px); color:#fff; }
-    .service-item p { margin:0 auto; max-width:520px; color:#cfcfcf; line-height:1.6; }
+    .service-item h3 { margin:0 0 10px; font-size:clamp(18px,2.4vw,24px); color:#111; }
+    .service-item p { margin:0 auto; max-width:520px; color:#444; line-height:1.6; }
 
     /* ===== MAIN CONTENT (projects + contact) ===== */
     .content { max-width:960px; margin:40px auto; padding:0 16px; }
@@ -58,8 +58,8 @@
     <h1>M Designs & Drafting Services</h1>
   </section>
 
-  <!-- SERVICES (dark background, appears when you scroll down) -->
-  <section id="services" class="section-dark">
+  <!-- SERVICES (light background) -->
+  <section id="services" class="section-light">
     <div class="section-inner">
       <h2>SERVICES</h2>
       <div class="sub">Practical design & drafting support</div>
@@ -68,7 +68,6 @@
         <!-- Service 1 -->
         <div class="service-item">
           <div class="icon-circle" aria-hidden="true">
-            <!-- plan/drawing icon -->
             <svg viewBox="0 0 24 24"><path d="M3 5h14v14H3zM17 9h4v10h-4zM7 3h10v4H7z"/></svg>
           </div>
           <h3>2D CAD Drafting</h3>
@@ -78,7 +77,6 @@
         <!-- Service 2 -->
         <div class="service-item">
           <div class="icon-circle" aria-hidden="true">
-            <!-- laptop icon -->
             <svg viewBox="0 0 24 24"><path d="M3 5h18v10H3zM1 17h22v2H1z"></path></svg>
           </div>
           <h3>3D Modelling</h3>
@@ -88,7 +86,6 @@
         <!-- Service 3 -->
         <div class="service-item">
           <div class="icon-circle" aria-hidden="true">
-            <!-- cube/print icon -->
             <svg viewBox="0 0 24 24"><path d="M7 3l5-2 5 2v5l-5 2-5-2V3zm-2 8l7 3 7-3v7l-7 3-7-3v-7z"/></svg>
           </div>
           <h3>3D Print & Prototypes</h3>
@@ -111,4 +108,5 @@
 
 </body>
 </html>
+
 
