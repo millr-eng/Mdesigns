@@ -18,12 +18,13 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background: url('./images/Scaffolding1.jpg') center/cover no-repeat fixed; /* Adjusted path */
+    background: url('./images/Scaffolding1.jpg') center/cover no-repeat; /* Ensure image loads */
+    background-attachment: fixed; /* Keeps image in place */
     display: flex;
-    align-items: flex-start; /* Align title to top */
+    align-items: flex-start; /* Title at top */
     justify-content: center;
     text-align: center;
-    padding-top: 5rem; /* More padding for top alignment */
+    padding-top: 5rem;
   }
 
   /* Dark overlay */
@@ -34,7 +35,7 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1; /* Overlay above background, below title */
+    z-index: 1; /* Overlay above background */
   }
 
   /* Title styling */
@@ -58,6 +59,7 @@
     font-family: Arial, sans-serif;
     z-index: 3; /* Content above everything */
     position: relative;
+    background: rgba(255, 255, 255, 0.9); /* Slight background for readability */
   }
 </style>
 
