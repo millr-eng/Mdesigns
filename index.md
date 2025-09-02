@@ -4,7 +4,7 @@
     display: none !important;
   }
 
-  /* Reset for full viewport and prevent layout shifts */
+  /* Reset for full viewport */
   html, body {
     margin: 0;
     padding: 0;
