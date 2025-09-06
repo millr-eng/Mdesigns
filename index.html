@@ -5,43 +5,51 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>M Designs & Drafting Services</title>
   <style>
-    html, body { height:100%; margin:0; }
+    html, body { height:100%; margin:0; scroll-behavior:smooth; }
     body { font-family: system-ui,-apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#111; }
 
     /* ===== HERO (fullscreen image with overlay + title) ===== */
     .hero {
       position: relative;
-      height: 100vh; /* full screen */
+      height: 100vh;
       background:
         linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
         url('https://millr-eng.github.io/Mdesigns/images/test2.jpg')
         center / cover no-repeat;
-      display:flex; align-items:center; justify-content:center;
-      text-align:center; color:#fff;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; color:#fff; padding:0 16px;
     }
     .hero h1 {
-      margin:0; font-weight:800; line-height:1.08;
+      margin:0 0 18px; font-weight:800; line-height:1.08;
       font-size: clamp(32px, 8vw, 84px);
       text-shadow: 0 4px 12px rgba(0,0,0,.6);
-      padding: 0 16px;
     }
+    .hero .cta {
+      display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+    }
+    .btn {
+      display:inline-block; padding:12px 18px; border-radius:999px; font-weight:600;
+      text-decoration:none; border:1px solid #fff; color:#111; background:#fff;
+    }
+    .btn.outline { background:transparent; color:#fff; }
+    .btn:hover { filter:brightness(0.95); }
 
-    /* ===== LIGHT SERVICES SECTION ===== */
+    /* ===== LIGHT & MUTED SECTIONS ===== */
     .section-light { background:#fff; color:#333; padding:72px 16px; }
+    .section-muted { background:#fafafa; color:#333; padding:72px 16px; }
     .section-inner { max-width:1100px; margin:0 auto; text-align:center; }
-    .section-light h2 { margin:0 0 8px; font-size:clamp(24px,4vw,38px); letter-spacing:.06em; }
-    .section-light .sub { color:#666; margin-bottom:48px; font-style:italic; }
+    .section-title { margin:0 0 8px; font-size:clamp(24px,4vw,38px); letter-spacing:.06em; }
+    .sub { color:#666; margin-bottom:48px; font-style:italic; }
 
+    /* ===== SERVICES GRID ===== */
     .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
     @media (max-width: 900px){ .services-grid { grid-template-columns:1fr; } }
-
     .service-item { padding:10px 18px 18px; text-align:left; }
     .icon-circle {
       width:120px; height:120px; margin:0 auto 18px; border-radius:50%;
       background:#f1c40f; display:grid; place-items:center;
     }
     .icon-circle svg { width:56px; height:56px; fill:#111; }
-
     .service-item h3 { margin:0 0 10px; font-size:clamp(18px,2.4vw,24px); color:#111; }
 
     /* Service list styling */
@@ -52,10 +60,31 @@
       list-style-type:disc;
     }
 
-    /* ===== MAIN CONTENT (projects + contact) ===== */
+    /* ===== ABOUT ===== */
+    .about { max-width:900px; margin:0 auto; text-align:left; line-height:1.75; color:#333; }
+    .about p { margin:0 0 14px; }
+
+    /* ===== CONTACT ===== */
+    .contact { max-width:720px; margin:0 auto; text-align:left; }
+    .contact .card {
+      background:#fff; border:1px solid #eee; border-radius:16px; padding:18px; box-shadow: 0 6px 18px rgba(0,0,0,.04);
+    }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width: 700px){ .grid-2 { grid-template-columns:1fr; } }
+    label { display:block; font-size:14px; margin:10px 0 6px; color:#444; }
+    input, textarea {
+      width:100%; padding:12px 14px; border:1px solid #ddd; border-radius:10px; font:inherit;
+    }
+    textarea { min-height:120px; resize:vertical; }
+    .btn.primary {
+      border-color:#0b6cff; background:#0b6cff; color:#fff;
+    }
+
+    /* ===== MAIN CONTENT (optional projects) ===== */
     .content { max-width:960px; margin:40px auto; padding:0 16px; }
     .content h2 { margin-top:0; }
     a { color:#0b6cff; }
+    footer { padding:36px 16px; text-align:center; color:#666; }
   </style>
 </head>
 <body>
@@ -63,12 +92,18 @@
   <!-- HERO -->
   <section class="hero">
     <h1>M Designs & Drafting Services</h1>
+    <!-- Top-of-page buttons linking to sections below -->
+    <div class="cta" aria-label="Section navigation">
+      <a class="btn" href="#services">Services</a>
+      <a class="btn outline" href="#about">About</a>
+      <a class="btn outline" href="#contact">Contact</a>
+    </div>
   </section>
 
-  <!-- SERVICES (light background) -->
-  <section id="services" class="section-light">
+  <!-- SERVICES -->
+  <section id="services" class="section-light" aria-label="Services">
     <div class="section-inner">
-      <h2>SERVICES</h2>
+      <h2 class="section-title">SERVICES</h2>
       <div class="sub">Practical design & drafting support</div>
 
       <div class="services-grid">
@@ -79,7 +114,7 @@
           </div>
           <h3>2D CAD Drafting</h3>
           <ul class="service-list">
-            <li>Turn sketches into 2D CAD drawings – for example for tradesman drawings, homeowner drawings and Engineering drawings.</li>
+            <li>Turn sketches into 2D CAD drawings – for tradesman, homeowner and engineering drawings</li>
             <li>Help with outsourced architectural drawings</li>
             <li>Building plans</li>
             <li>Construction detailing</li>
@@ -94,10 +129,10 @@
           </div>
           <h3>3D Modelling</h3>
           <ul class="service-list">
-            <li>Turning 2D drawings into 3D models - for example for tradesman drawings, homeowner drawings and Engineering drawings</li>
+            <li>Turning 2D drawings into 3D models – for tradesmen, homeowners and engineers</li>
             <li>Visualisation drawings for idea generation</li>
-            <li>Clean 3D drawings for clients and installers</li>
-            <li>Steel work 3D modelling - Sketchup is quick and nibble for low to medium complexity projects</li>
+            <li>Clean 3D exports for clients and installers</li>
+            <li>Steelwork 3D modelling – SketchUp for low to medium complexity projects</li>
           </ul>
         </div>
 
@@ -108,25 +143,81 @@
           </div>
           <h3>3D Print & Prototypes</h3>
           <ul class="service-list">
-            <li>Rapid brackets and fixtures - useful for broken items or prototyping</li>
-            <li>Help with 3D modelling for printing</li>
+            <li>Rapid brackets and fixtures – repair or prototype fast</li>
+            <li>Help with 3D modelling for print readiness</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="content">
+  <!-- ABOUT (new page/section as you scroll) -->
+  <section id="about" class="section-muted" aria-label="About">
+    <div class="section-inner">
+      <h2 class="section-title">ABOUT</h2>
+      <div class="sub">Engineered, practical, and clear.</div>
+      <div class="about">
+        <p>M Designs &amp; Drafting delivers clear, standards-compliant drawings and models for real-world buildability. With experience in water-industry projects and hands-on prototyping, I focus on information that installers, fabricators and clients can actually use.</p>
+        <p>Whether you’re a homeowner needing planning-ready plans, a tradesperson wanting tidy details, or an engineering team seeking coordinated 2D/3D deliverables, I aim for fast, accurate outputs and straightforward communication.</p>
+        <p>Tools: AutoCAD (2D), SketchUp Pro (3D), and 3D printing for quick prototypes when helpful.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (new page/section as you scroll) -->
+  <section id="contact" class="section-light" aria-label="Contact">
+    <div class="section-inner">
+      <h2 class="section-title">CONTACT</h2>
+      <div class="sub">Tell me about your project and the outcome you need.</div>
+
+      <div class="contact">
+        <div class="card">
+          <!-- mailto works on GitHub Pages without a backend -->
+          <form action="mailto:Mdesigns.engineering@gmail.com" method="post" enctype="text/plain">
+            <div class="grid-2">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="Name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" required />
+              </div>
+            </div>
+
+            <label for="subject">Subject</label>
+            <input id="subject" name="Subject" />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" placeholder="Briefly describe your project, timelines, and any files/drawings you already have."></textarea>
+
+            <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <button class="btn primary" type="submit">Send Email</button>
+              <a class="btn outline" href="mailto:Mdesigns.engineering@gmail.com">Open in Email App</a>
+            </div>
+          </form>
+          <p style="margin-top:12px; color:#666; font-size:14px;">Prefer direct email? <a href="mailto:Mdesigns.engineering@gmail.com">Mdesigns.engineering@gmail.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONAL: Featured projects kept for now -->
+  <main class="content" aria-label="Featured projects">
     <h2>Featured projects</h2>
     <ul>
       <li><a href="https://millr-eng.github.io/Mdesigns/projects/example-project">Example Project</a></li>
     </ul>
-
-    <h2>Contact</h2>
-    <p><a href="mailto:Mdesigns.engineering@gmail.com">Mdesigns.engineering@gmail.com</a></p>
   </main>
 
+  <footer>
+    © <span id="year"></span> M Designs & Drafting. All rights reserved.
+  </footer>
+
+  <script>
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
 
