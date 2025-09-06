@@ -35,7 +35,7 @@
     .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
     @media (max-width: 900px){ .services-grid { grid-template-columns:1fr; } }
 
-    .service-item { padding:10px 18px 18px; }
+    .service-item { padding:10px 18px 18px; text-align:left; }
     .icon-circle {
       width:120px; height:120px; margin:0 auto 18px; border-radius:50%;
       background:#f1c40f; display:grid; place-items:center;
@@ -43,7 +43,14 @@
     .icon-circle svg { width:56px; height:56px; fill:#111; }
 
     .service-item h3 { margin:0 0 10px; font-size:clamp(18px,2.4vw,24px); color:#111; }
-    .service-item p { margin:0 auto; max-width:520px; color:#444; line-height:1.6; }
+
+    /* Service list styling */
+    .service-list {
+      margin:0;
+      padding-left:20px;
+      line-height:1.6;
+      list-style-type:disc;
+    }
 
     /* ===== MAIN CONTENT (projects + contact) ===== */
     .content { max-width:960px; margin:40px auto; padding:0 16px; }
@@ -70,14 +77,14 @@
           <div class="icon-circle" aria-hidden="true">
             <svg viewBox="0 0 24 24"><path d="M3 5h14v14H3zM17 9h4v10h-4zM7 3h10v4H7z"/></svg>
           </div>
-         <h3>2D CAD Drafting</h3>
-        <ul style="margin: 0; padding-left: 20px; line-height: 1.6; list-style-type: disc;">
-          <li>Turn sketches into 2D CAD drawing – Tradesman drawings, homeowner drawings and engineering drawings.</li>
-          <li>Help with outsourced architectural drawings</li>
-          <li>Building plans</li>
-          <li>Updating existing drawings from redline markups</li>
-        </ul>
-
+          <h3>2D CAD Drafting</h3>
+          <ul class="service-list">
+            <li>Turn sketches into 2D CAD drawing – tradesman drawings, homeowner drawings and engineering drawings.</li>
+            <li>Help with outsourced architectural drawings</li>
+            <li>Building plans</li>
+            <li>Updating existing drawings from redline markups</li>
+          </ul>
+        </div>
 
         <!-- Service 2 -->
         <div class="service-item">
@@ -85,7 +92,11 @@
             <svg viewBox="0 0 24 24"><path d="M3 5h18v10H3zM1 17h22v2H1z"></path></svg>
           </div>
           <h3>3D Modelling</h3>
-          <p>SketchUp Pro models for options, coordination and visuals; clean exports for clients and installers.</p>
+          <ul class="service-list">
+            <li>SketchUp Pro models for design options</li>
+            <li>Coordination and visualisation</li>
+            <li>Clean exports for clients and installers</li>
+          </ul>
         </div>
 
         <!-- Service 3 -->
@@ -94,24 +105,14 @@
             <svg viewBox="0 0 24 24"><path d="M7 3l5-2 5 2v5l-5 2-5-2V3zm-2 8l7 3 7-3v7l-7 3-7-3v-7z"/></svg>
           </div>
           <h3>3D Print & Prototypes</h3>
-          <p>Rapid brackets and fixtures; documented settings for repeatable prints and tidy handovers.</p>
+          <ul class="service-list">
+            <li>Rapid brackets and fixtures</li>
+            <li>Documented print settings for repeatability</li>
+            <li>Tidy handovers with usage notes</li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <main class="content">
-    <h2>Featured projects</h2>
-    <ul>
-      <li><a href="https://millr-eng.github.io/Mdesigns/projects/example-project">Example Project</a></li>
-    </ul>
-
-    <h2>Contact</h2>
-    <p>Mdesigns.engineering@gmail.com</p>
-  </main>
-
-</body>
-</html>
+  </section
 
 
