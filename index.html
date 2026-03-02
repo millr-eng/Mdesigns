@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>M Designs & Drafting Services</title>
-  <!-- Google Font for headings -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -54,10 +53,8 @@
     .hero .welcome{
       margin:0 0 12px;
       font-size:clamp(16px,3vw,22px);
-      font-style:italic;
-      font-weight:300;
-      letter-spacing:.2px;
-      opacity:.95;
+      font-style:italic; font-weight:300;
+      letter-spacing:.2px; opacity:.95;
     }
     .hero h1{
       margin:0; font-family:'Poppins', sans-serif;
@@ -69,27 +66,42 @@
     .hero .tagline{
       margin-top:14px;
       font-size:clamp(16px,3vw,22px);
-      font-weight:300;
-      opacity:.9;
+      font-weight:300; opacity:.9;
     }
 
     /* ========= SECTIONS ========= */
     section{ scroll-margin-top: calc(var(--nav-h) + 12px); }
     .section-light{ background:#fff; color:var(--ink-2); padding:72px 16px; }
     .section-muted{ background:var(--muted); color:var(--ink-2); padding:72px 16px; }
+    .section-dark{ background:#1a1c1f; color:#e8e8e8; padding:72px 16px; }
     .section-inner{ max-width:1100px; margin:0 auto; text-align:center; }
     .section-title{ margin:0 0 8px; font-family:'Poppins', sans-serif; font-size:clamp(22px,3.5vw,32px); letter-spacing:.04em; font-weight:600; }
-    .sub{ color:#666; margin-bottom:48px; font-style:italic; }
+    .sub{ color:#888; margin-bottom:48px; font-style:italic; }
+    .section-dark .sub{ color:#aaa; }
 
-    /* ========= SERVICES ========= */
+    /* ========= SERVICES GRID (clickable cards) ========= */
     .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
     @media (max-width:900px){ .services-grid{ grid-template-columns:1fr; } }
+
     .service-item{
       padding:16px 18px 22px; text-align:left; background:#fff; border:1px solid #eee;
       border-radius:16px; box-shadow:var(--shadow);
       transition: transform .18s ease, box-shadow .18s ease;
+      /* Make it a clickable button */
+      display:block; text-decoration:none; color:inherit; cursor:pointer;
+      position:relative; overflow:hidden;
     }
-    .service-item:hover{ transform: translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.16); }
+    .service-item::after{
+      content:'View work →';
+      position:absolute; bottom:16px; right:18px;
+      font-size:13px; font-weight:600; color:var(--link);
+      opacity:0; transform:translateY(4px);
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .service-item:hover{ transform: translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.18); }
+    .service-item:hover::after{ opacity:1; transform:translateY(0); }
+    .service-item:hover h3{ color:var(--link); }
+    .service-item h3{ transition: color .2s ease; }
 
     .icon-circle{
       width:100px; height:100px; margin:0 auto 18px; border-radius:var(--radius-lg);
@@ -98,18 +110,61 @@
     .icon-circle svg{ width:46px; height:46px; stroke:#fff; fill:none; stroke-width:2; }
 
     .service-item h3{ margin:8px 0 10px; font-family:'Poppins', sans-serif; font-size:clamp(17px,2.2vw,22px); color:var(--ink); font-weight:600; }
-    .service-list{ margin:0; padding-left:20px; line-height:1.65; list-style-type:disc; }
+    .service-list{ margin:0 0 24px; padding-left:20px; line-height:1.65; list-style-type:disc; }
+
+    /* ========= DETAIL SECTIONS ========= */
+    .detail-header{
+      display:flex; align-items:center; gap:16px; margin-bottom:32px; justify-content:center;
+    }
+    .detail-header .icon-circle{ margin:0; flex-shrink:0; }
+    .detail-header h2{ margin:0; font-family:'Poppins', sans-serif; font-size:clamp(22px,3.5vw,32px); font-weight:600; }
+    .section-dark .detail-header h2{ color:#fff; }
+
+    .detail-body{ max-width:900px; margin:0 auto; text-align:left; line-height:1.75; }
+    .detail-body p{ margin:0 0 20px; }
+
+    /* Sketchfab embed wrapper */
+    .model-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:24px; margin-top:32px; }
+    .model-card{
+      border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+      background:#111;
+    }
+    .model-card iframe{ display:block; width:100%; height:300px; border:0; }
+    .model-card .model-label{
+      padding:10px 14px; font-size:14px; font-weight:600;
+      color:#ddd; background:#202225;
+    }
+
+    /* Placeholder for Sketchfab embed */
+    .embed-placeholder{
+      width:100%; height:300px; background:#2a2d30;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      color:#888; font-size:14px; gap:8px;
+    }
+    .embed-placeholder svg{ width:40px; height:40px; stroke:#555; fill:none; stroke-width:1.5; }
+    .embed-placeholder span{ font-style:italic; }
+
+    .back-btn{
+      display:inline-flex; align-items:center; gap:6px;
+      background:transparent; border:1px solid currentColor;
+      padding:8px 18px; border-radius:8px; cursor:pointer;
+      font-size:14px; font-weight:500; text-decoration:none; color:inherit;
+      margin-bottom:36px;
+      transition: background .15s, color .15s;
+    }
+    .back-btn:hover{ background:rgba(255,255,255,.1); text-decoration:none; }
+    .section-light .back-btn:hover{ background:rgba(0,0,0,.06); }
 
     /* ========= ABOUT ========= */
     .about{ max-width:900px; margin:0 auto; text-align:left; line-height:1.75; color:#333; }
-    .about p{ margin:0 0 24px; } /* more spacing between paras */
+    .about p{ margin:0 0 24px; }
 
     /* ========= CONTACT ========= */
     .contact{ max-width:720px; margin:0 auto; text-align:center; }
     .contact .card{
       background:var(--card); border:1px solid #eee; border-radius:16px; padding:18px; box-shadow:var(--shadow);
     }
-    .contact p{ margin:0 0 20px; } /* more breathing room */
+    .contact p{ margin:0 0 20px; }
 
     /* ========= FOOTER & LINKS ========= */
     footer{ padding:36px 16px; text-align:center; color:#666; }
@@ -138,22 +193,17 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ===== SERVICES OVERVIEW ===== -->
   <section id="services" class="section-light" aria-label="Services">
     <div class="section-inner">
       <h2 class="section-title">SERVICES</h2>
-      <div class="sub">Practical design & drafting support</div>
+      <div class="sub">Click a service to learn more & view examples</div>
 
       <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-item">
+        <!-- Card 1 — links to detail section -->
+        <a class="service-item" href="#cad-drafting">
           <div class="icon-circle" aria-hidden="true">
-            <!-- CAD icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <line x1="3" y1="9" x2="21" y2="9"/>
-              <line x1="9" y1="21" x2="9" y2="9"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
           </div>
           <h3>2D CAD Drafting</h3>
           <ul class="service-list">
@@ -164,18 +214,12 @@
             <li>2D engineering drawings</li>
             <li>AutoCAD used</li>
           </ul>
-        </div>
+        </a>
 
-        <!-- Service 2 -->
-        <div class="service-item">
+        <!-- Card 2 -->
+        <a class="service-item" href="#modelling">
           <div class="icon-circle" aria-hidden="true">
-            <!-- 3D cube icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <polygon points="12,2 22,7 22,17 12,22 2,17 2,7 12,2"/>
-              <line x1="12" y1="22" x2="12" y2="12"/>
-              <line x1="22" y1="7" x2="12" y2="12"/>
-              <line x1="2" y1="7" x2="12" y2="12"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><polygon points="12,2 22,7 22,17 12,22 2,17 2,7 12,2"/><line x1="12" y1="22" x2="12" y2="12"/><line x1="22" y1="7" x2="12" y2="12"/><line x1="2" y1="7" x2="12" y2="12"/></svg>
           </div>
           <h3>3D Modelling</h3>
           <ul class="service-list">
@@ -185,17 +229,12 @@
             <li>Steelwork & structural modelling (SketchUp)</li>
             <li>Architectural 3D modelling</li>
           </ul>
-        </div>
+        </a>
 
-        <!-- Service 3 -->
-        <div class="service-item">
+        <!-- Card 3 -->
+        <a class="service-item" href="#printing">
           <div class="icon-circle" aria-hidden="true">
-            <!-- 3D print icon -->
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 17v-6h16v6"/>
-              <path d="M4 17h16v4H4z"/>
-              <line x1="12" y1="11" x2="12" y2="17"/>
-            </svg>
+            <svg viewBox="0 0 24 24"><path d="M4 17v-6h16v6"/><path d="M4 17h16v4H4z"/><line x1="12" y1="11" x2="12" y2="17"/></svg>
           </div>
           <h3>3D Print & Prototypes</h3>
           <ul class="service-list">
@@ -203,8 +242,108 @@
             <li>General 3D printing</li>
             <li>Design support for print-ready 3D models</li>
           </ul>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DETAIL: 2D CAD DRAFTING ===== -->
+  <section id="cad-drafting" class="section-muted" aria-label="2D CAD Drafting detail">
+    <div class="section-inner">
+      <a class="back-btn" href="#services">← Back to Services</a>
+      <div class="detail-header">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" style="width:46px;height:46px;stroke:#fff;fill:none;stroke-width:2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+        </div>
+        <h2>2D CAD Drafting</h2>
+      </div>
+      <div class="detail-body">
+        <p>From hand sketches to precise, construction-ready 2D drawings — produced in AutoCAD to industry standards. Whether you need a full set of architectural drawings or a single detail updated from redline markups, the output is clean, accurate, and ready to use.</p>
+        <p>Services include building plans, sections, elevations, construction details, and engineering drawings across residential, commercial, and industrial projects.</p>
+        <!-- Add images of your CAD work here, e.g.: -->
+        <!-- <img src="/images/cad-example.jpg" alt="Example CAD drawing" style="width:100%;border-radius:12px;margin-top:16px;"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DETAIL: 3D MODELLING ===== -->
+  <section id="modelling" class="section-dark" aria-label="3D Modelling detail">
+    <div class="section-inner">
+      <a class="back-btn" href="#services">← Back to Services</a>
+      <div class="detail-header">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" style="width:46px;height:46px;stroke:#fff;fill:none;stroke-width:2"><polygon points="12,2 22,7 22,17 12,22 2,17 2,7 12,2"/><line x1="12" y1="22" x2="12" y2="12"/><line x1="22" y1="7" x2="12" y2="12"/><line x1="2" y1="7" x2="12" y2="12"/></svg>
+        </div>
+        <h2>3D Modelling</h2>
+      </div>
+      <div class="detail-body" style="color:#ccc;">
+        <p>3D models built in SketchUp — from converting 2D drawings into detailed 3D models, through to concept visualisations, structural steelwork, and full architectural builds. Models can be explored interactively below via Sketchfab.</p>
+      </div>
+
+      <!-- ===== SKETCHFAB EMBEDS — replace src URLs with your own model embed links ===== -->
+      <div class="model-grid">
+
+        <div class="model-card">
+          <!-- REPLACE the src below with your Sketchfab embed URL:
+               Go to your model on Sketchfab → Share → Embed → copy the src URL -->
+          <iframe
+            title="3D Model Example 1"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allowfullscreen
+            src="https://sketchfab.com/models/YOUR_MODEL_ID_1/embed?ui_theme=dark"
+            loading="lazy">
+          </iframe>
+          <div class="model-label">Model title here</div>
+        </div>
+
+        <div class="model-card">
+          <iframe
+            title="3D Model Example 2"
+            allow="autoplay; fullscreen; xr-spatial-tracking"
+            mozallowfullscreen="true"
+            webkitallowfullscreen="true"
+            allowfullscreen
+            src="https://sketchfab.com/models/YOUR_MODEL_ID_2/embed?ui_theme=dark"
+            loading="lazy">
+          </iframe>
+          <div class="model-label">Model title here</div>
+        </div>
+
+      </div>
+      <!-- Add more <div class="model-card"> blocks for each additional model -->
+    </div>
+  </section>
+
+  <!-- ===== DETAIL: 3D PRINT & PROTOTYPES ===== -->
+  <section id="printing" class="section-light" aria-label="3D Print and Prototypes detail">
+    <div class="section-inner">
+      <a class="back-btn" href="#services">← Back to Services</a>
+      <div class="detail-header">
+        <div class="icon-circle" aria-hidden="true">
+          <svg viewBox="0 0 24 24" style="width:46px;height:46px;stroke:#fff;fill:none;stroke-width:2"><path d="M4 17v-6h16v6"/><path d="M4 17h16v4H4z"/><line x1="12" y1="11" x2="12" y2="17"/></svg>
+        </div>
+        <h2>3D Print & Prototypes</h2>
+      </div>
+      <div class="detail-body">
+        <p>From concept to physical prototype — models are prepared and optimised for 3D printing, ensuring clean geometry, correct tolerances, and print-ready files. Suitable for product development, presentation models, and bespoke components.</p>
+        <p>General 3D printing and design support also available for one-off items or small runs.</p>
+      </div>
+
+      <div class="model-grid">
+        <div class="model-card">
+          <div class="sketchfab-embed-wrapper">
+            <iframe title="EV cable guide rev 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/62fb70ed33ce442283120da1da74c58b/embed" style="width:100%;height:300px;"></iframe>
+            <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;">
+              <a href="https://sketchfab.com/3d-models/ev-cable-guide-rev-2-62fb70ed33ce442283120da1da74c58b?utm_medium=embed&utm_campaign=share-popup&utm_content=62fb70ed33ce442283120da1da74c58b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">EV cable guide rev 2</a>
+              by <a href="https://sketchfab.com/Mill3r?utm_medium=embed&utm_campaign=share-popup&utm_content=62fb70ed33ce442283120da1da74c58b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">M_Projects</a>
+              on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=62fb70ed33ce442283120da1da74c58b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+            </p>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -215,7 +354,7 @@
       <div class="sub">Engineered, practical, and clear.</div>
       <div class="about">
         <p>M Designs &amp; Drafting provides practical drafting and 3D modelling services, supported by a background in engineering and construction.</p>
-      <p>With a strong attention to detail, the focus is on producing accurate, reliable information that helps projects run smoothly from concept through to build.</p></p>
+        <p>With a strong attention to detail, the focus is on producing accurate, reliable information that helps projects run smoothly from concept through to build.</p>
       </div>
     </div>
   </section>
@@ -224,12 +363,11 @@
   <section id="contact" class="section-light" aria-label="Contact">
     <div class="section-inner">
       <h2 class="section-title">CONTACT</h2>
-      <div class="sub">Email me and I’ll get back to you promptly.</div>
-
+      <div class="sub">Email me and I'll get back to you promptly.</div>
       <div class="contact">
         <div class="card">
           <p style="font-size:18px; margin:0;">
-            <a href="mailto:Mdesigns.engineering@gmail.com">Mdesigns.engineering@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#d39eb7b6a0bab4bda0fdb6bdb4babdb6b6a1babdb493b4beb2babffdb0bcbe"><span class="__cf_email__" data-cfemail="367b5253455f515845185358515f585353445f585176515b575f5a1855595b">[email&#160;protected]</span></a>
           </p>
         </div>
       </div>
@@ -237,11 +375,4 @@
   </section>
 
   <footer>
-    © <span id="year"></span> M Designs & Drafting. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+    © <span id="year"></span> M Designs & Dr
