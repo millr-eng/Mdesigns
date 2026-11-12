@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: /
-# ^ Blocks search engines. Remove these two lines when/if you want the site indexed.
+Allow: /
+
+Sitemap: https://m-designs.uk/sitemap.xml
